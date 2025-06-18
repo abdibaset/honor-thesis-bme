@@ -1,0 +1,81 @@
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{verbose,letterpaper,tmargin=1in,bmargin=1in,lmargin=1.5in,rmargin=1in}
+\usepackage{setspace}
+\usepackage[colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=blue]{hyperref}
+\usepackage{titlesec}
+\usepackage[lining,tabular]{ebgaramond}
+
+% \usepackage[bitstream-charter]{mathdesign}
+% \usepackage{plex-otf}]
+% \usepackage{fontspec}
+% \setmainfont{EBGaramond-Regular} % This matches specific TTF name
+
+\linespread{1.05}        
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+\usepackage{caption}
+\emergencystretch=1em
+
+\usepackage[none]{hyphenat}
+\usepackage{microtype}
+
+\usepackage{ragged2e}
+% \usepackage{microtype}
+% \usepackage[
+%   left=1in, right=1in, top=1in, bottom=1in
+% ]{geometry}
+\usepackage{placeins}  % in preamble
+\usepackage{float}
+\usepackage[font=small,skip=2pt]{caption}  
+\usepackage{wrapfig}
+\usepackage[export]{adjustbox}
+\usepackage{booktabs}
+\usepackage{array}  
+\usepackage{multirow}
+\usepackage{indentfirst}
+\usepackage{subcaption}
+
+\captionsetup[figure]{font=small, labelfont=bf, labelsep=period, justification=justified, singlelinecheck=false}
+\usepackage[
+    % style=authoryear, 
+    citestyle=numeric, 
+    backend=biber, 
+    maxnames=99,
+    giveninits=true,
+    sorting=none,
+    uniquename=false
+]{biblatex}
+\DeclareNameAlias{default}{family-given}
+\addbibresource{myrefs.bib}
+\DeclareFieldFormat{doi}{doi: \href{https://doi.org/#1}{#1}}
+
+\setlength{\parindent}{15pt}
+\setlength{\parskip}{0pt}
+
+\usepackage{etoolbox}
+\makeatletter
+% Ensure paragraphs after sections/chapters are indented
+\patchcmd{\@startsection}
+  {\@afterindentfalse}
+  {\@afterindenttrue}
+  {}{}
+
+\patchcmd{\@afterheading}
+  {\@nobreaktrue}
+  {}{}{}
+\makeatother
+
+\titleformat{\section}
+  {\normalfont\large\bfseries} % font settings
+  {\thesection}{1em}{}          % section number formatting
+
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries}
+  {\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\itshape}
+  {\thesubsubsection}{1em}{}

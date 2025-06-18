@@ -1,0 +1,52 @@
+\documentclass[12pt, a5paper]{report}  % or book
+\input{common.tex}
+
+\begin{document}
+\pagenumbering{roman}        %% roman page numbers for front matter
+
+\renewcommand\thepage{}
+    \include{TitlePage}
+\newpage
+% \tableofcontents
+
+\renewcommand\thepage{\arabic{page}}
+\pagenumbering{roman}     
+\setcounter{page}{2}
+
+
+\doublespacing               %% set spacing to double
+
+\include{Acknowledgements}
+\include{Abstract}  
+\singlespacing
+\tableofcontents
+\singlespacing
+\listoftables                %% include list of tables
+\listoffigures               %% include list of figures
+% \cleardoublepage             %% start new page
+
+\pagenumbering{arabic}       %% arabic page numbers for body of text starting with page 1
+
+% \doublespacing
+%\include{Introduction}
+
+\doublespacing
+\include{./chapter1/Chapter1}         
+\include{./chapter2/chapter2}         
+\include{./chapter3/chapter3}
+\include{./chapter4/chapter4}
+\include{./chapter5/chapter5}
+
+\appendix
+\include{A}
+\include{B}
+\include{C}
+
+\singlespacing
+
+\addcontentsline{TOC}{chapter}{Bibliography}  %% include bibliography in the TOC
+% \bibliographystyle{apacite}   %% specify bibliography style (requires IEEEtran.bst somewhere TeX can find it)
+% \bibliography{myrefs}	% expects file "myrefs.bib"
+\printbibliography
+% \input{figures.tex} 
+\end{document}
